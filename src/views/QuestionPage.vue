@@ -56,7 +56,7 @@ onMounted(async () => {
 <template>
   <div v-if="question" class="question-container">
     <BaseTitle> {{ question.category }}</BaseTitle>
-    <p class="question">{{ question.question }}</p>
+    <p class="question" v-html="question.question" />
     <div class="answers">
       <div
         v-for="answer in answers"
@@ -76,19 +76,24 @@ onMounted(async () => {
 <style lang="postcss" scoped>
 .question-container {
   @apply flex h-full w-full flex-col items-center gap-8;
+
   & .question {
     @apply text-center text-2xl font-bold;
   }
+
   & .answers {
     @apply grid w-full flex-grow grid-cols-2 gap-8;
+
     & .answer {
       @apply flex items-center justify-center rounded-lg text-center text-4xl text-white;
+
       &:hover {
         @apply cursor-pointer;
       }
     }
   }
 }
+
 .loading {
   @apply flex h-full w-full items-center justify-center text-7xl;
 }
