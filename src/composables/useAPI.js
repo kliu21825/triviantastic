@@ -13,6 +13,7 @@ export default function useAPI() {
       categories.value = response.data.trivia_categories
     }
   }
+
   const getQuestion = async (categoryId) => {
     const response = await instance.get('api.php', {
       params: {
